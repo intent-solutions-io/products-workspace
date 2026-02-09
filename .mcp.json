@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "whop": {
+      "type": "sse",
+      "url": "https://mcp.whop.com/sse",
+      "headers": {
+        "Authorization": "Bearer ${WHOP_API_KEY}"
+      }
+    }
+  }
+}

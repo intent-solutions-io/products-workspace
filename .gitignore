@@ -1,0 +1,19 @@
+# Sub-project repos (cloned separately)
+crypto-agent/
+ai-agent-wallet/
+
+# Environment
+.env
+.env.local
+*.pyc
+__pycache__/
+.venv/
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
