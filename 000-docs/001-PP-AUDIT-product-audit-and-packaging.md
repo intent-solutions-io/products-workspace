@@ -236,10 +236,10 @@ WHAT YOU GET:
 - 7-day defect warranty
 
 WHAT YOU DO NOT GET:
-- Ongoing support (paid add-on)
+- Support of any kind (self-service only)
 - Custom development
-- Deployment to your infrastructure (paid add-on)
-- Future updates (paid subscription)
+- Deployment to your infrastructure
+- Future updates
 - Financial advice or trading signals
 ```
 
