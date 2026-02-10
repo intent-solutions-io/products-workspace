@@ -6,26 +6,28 @@ This is the parent workspace for Intent Solutions digital products. Each product
 
 ```
 products/
-├── crypto-agent/        # Crypto Portfolio Agent ($297) — separate repo
-├── ai-agent-wallet/     # AI Agent Wallet ($10+) — separate repo
-├── .mcp.json            # Whop MCP server config (shared across products)
-├── CLAUDE.md            # This file
-├── AGENTS.md            # Available specialist agents
-└── README.md            # Public workspace overview
+├── crypto-agent/          # Crypto Portfolio Agent ($20) — separate repo
+├── ai-agent-wallet/       # AI Agent Wallet ($20) — separate repo
+├── vincent-defi-agent/    # Vincent DeFi Agent ($20) — separate repo
+├── bags/                  # Bags integration
+├── .mcp.json              # Whop MCP server config (shared across products)
+├── CLAUDE.md              # This file
+├── AGENTS.md              # Available specialist agents
+└── README.md              # Public workspace overview
 ```
 
 ## Products
 
 | Product | Repo | Price | Status |
 |---------|------|-------|--------|
-| Crypto Portfolio Agent | `intent-solutions-io/crypto-agent` | $297 | Shipped |
-| AI Agent Wallet | `intent-solutions-io/ai-agent-wallet` | $10+ | Shipped |
+| Crypto Portfolio Agent | `intent-solutions-io/crypto-agent` | $20 | Shipped |
+| AI Agent Wallet | `intent-solutions-io/ai-agent-wallet` | $20 | Shipped |
+| Vincent DeFi Agent | `intent-solutions-io/vincent-defi-agent` | $20 | Shipped |
 
 ## Sales Channels
 
-- **Gumroad**: https://intentsolutions.gumroad.com (both products live)
-- **Whop**: Setting up via MCP + SDK (API key in `pass whop/api-key`)
-- **Upwork**: Crypto Agent listed
+- **Gumroad**: https://intentsolutions.gumroad.com (all 3 products live)
+- **Whop**: Live via MCP + SDK (API key in `pass whop/api-key`)
 
 ## Whop Integration
 
@@ -54,10 +56,22 @@ cd ai-agent-wallet && pytest tests/ -v
 /home/jeremy/.venvs/whop/bin/python -c "from whop_sdk import Whop; print('OK')"
 ```
 
+## Version Control
+
+**Semantic versioning is required for all products.**
+
+All products use [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH):
+- **MAJOR**: Breaking changes (config format, API changes, removed features)
+- **MINOR**: New features (new abilities, policies, config options)
+- **PATCH**: Bug fixes, docs updates, dependency bumps
+
+Each product tracks its version in a `VERSION` file at the repo root. Release scripts read from this file. Bump the version before creating a release.
+
 ## Product Patterns
 
 All products follow these conventions:
-- **Delivery**: Docker container + Python source ZIP + config template + README
+- **Versioning**: Semantic versioning (see above) tracked in `VERSION` file
+- **Delivery**: Docker container + source ZIP + config template + README
 - **Acceptance**: `doctor` command produces verifiable test report
 - **License**: Non-exclusive, non-transferable, perpetual usage rights
 - **Warranty**: 7-day defect warranty for reproducible bugs

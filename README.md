@@ -21,7 +21,6 @@ flowchart TB
     subgraph Marketplaces["Sales Channels"]
         GR[Gumroad]
         WH[Whop]
-        UW[Upwork]
     end
 
     subgraph Products["Product Repos"]
@@ -45,7 +44,6 @@ flowchart TB
 
     GR --> CA & AW & VD
     WH --> CA & AW & VD
-    UW --> CA
 
     CA & AW & VD --> D1 & D2 & D3 & D4
     D1 & D2 --> B1
@@ -137,7 +135,6 @@ git clone https://github.com/intent-solutions-io/ai-agent-wallet.git
 |---------|--------|----------|
 | Gumroad | Live | Crypto Agent, AI Agent Wallet, Vincent DeFi Agent |
 | Whop | Live | Crypto Agent, AI Agent Wallet, Vincent DeFi Agent |
-| Upwork | Live | Crypto Agent |
 
 ## License
 
