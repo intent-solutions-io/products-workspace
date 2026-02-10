@@ -1,6 +1,6 @@
 # Intent Solutions — Products Workspace
 
-> **Premade digital products sold on [Gumroad](https://intentsolutions.gumroad.com) and [Whop](https://whop.com). Self-hosted tools for crypto, AI agents, and automation.**
+> **Premade digital products sold on [Gumroad](https://intentsolutions.gumroad.com) and [Whop](https://whop.com/intentsolutions). Self-hosted tools for crypto, AI agents, and automation.**
 
 ---
 
@@ -8,8 +8,11 @@
 
 | Product | Price | Description | Repo | Marketplace |
 |---------|-------|-------------|------|-------------|
-| **Crypto Portfolio Agent** | $297 | Read-only portfolio monitoring for EVM chains. Tracks balances, DeFi positions, alerts, and reports. | [crypto-agent](https://github.com/intent-solutions-io/crypto-agent) | [Gumroad](https://intentsolutions.gumroad.com) |
-| **AI Agent Wallet** | $10+ | Self-hosted wallet infrastructure for AI agents. Guardrails, kill switch, audit logging. | [ai-agent-wallet](https://github.com/intent-solutions-io/ai-agent-wallet) | [Gumroad](https://intentsolutions.gumroad.com) |
+| **Crypto Portfolio Agent** | $20 | Read-only portfolio monitoring for EVM chains. Tracks balances, DeFi positions, alerts, and reports. | [crypto-agent](https://github.com/intent-solutions-io/crypto-agent) | [Gumroad](https://intentsolutions.gumroad.com) / [Whop](https://whop.com/intentsolutions) |
+| **AI Agent Wallet** | $20 | Self-hosted wallet infrastructure for AI agents. Guardrails, kill switch, audit logging. | [ai-agent-wallet](https://github.com/intent-solutions-io/ai-agent-wallet) | [Gumroad](https://intentsolutions.gumroad.com) / [Whop](https://whop.com/intentsolutions) |
+| **Vincent DeFi Agent** | $20 | DeFi trading agent with cryptographic guardrails (Lit Protocol TEE). Swaps, sends, DCA on Base. | [vincent-defi-agent](https://github.com/intent-solutions-io/vincent-defi-agent) | [Gumroad](https://intentsolutions.gumroad.com) / [Whop](https://whop.com/intentsolutions) |
+
+All products include an **AI-guided setup wizard** (`/agent-setup` for Claude Code, or SETUP-PROMPT.md for any AI assistant).
 
 ## Architecture
 
@@ -22,15 +25,16 @@ flowchart TB
     end
 
     subgraph Products["Product Repos"]
-        CA["crypto-agent<br/>Portfolio Monitor<br/>$297"]
-        AW["ai-agent-wallet<br/>Agent Wallet Infra<br/>$10+"]
+        CA["crypto-agent<br/>Portfolio Monitor<br/>$20"]
+        AW["ai-agent-wallet<br/>Agent Wallet Infra<br/>$20"]
+        VD["vincent-defi-agent<br/>DeFi + Crypto Guardrails<br/>$20"]
     end
 
     subgraph Deliverables["What Buyers Get"]
         D1["Docker container"]
-        D2["Python source ZIP"]
+        D2["Source code"]
         D3["Config template"]
-        D4["README + docs"]
+        D4["AI setup wizard + docs"]
     end
 
     subgraph Buyer["Buyer's Infrastructure"]
@@ -39,35 +43,32 @@ flowchart TB
         B3["Notification channels"]
     end
 
-    GR --> CA
-    GR --> AW
-    WH --> CA
-    WH --> AW
+    GR --> CA & AW & VD
+    WH --> CA & AW & VD
     UW --> CA
 
-    CA --> D1 & D2 & D3 & D4
-    AW --> D1 & D2 & D3 & D4
+    CA & AW & VD --> D1 & D2 & D3 & D4
     D1 & D2 --> B1
     B1 --> B2 & B3
 ```
 
 ## Product Details
 
-### Crypto Portfolio Agent — $297
+### Crypto Portfolio Agent — $20
 
 Read-only monitoring tool for cryptocurrency wallets across EVM chains.
 
 **What it does:**
 - Monitors wallet balances (native + ERC-20) across Ethereum, Polygon, Arbitrum, Optimism, Base
 - Tracks DeFi positions (Aave V3, Uniswap V3 LP, Lido stETH)
-- 6 alert types: price threshold, balance change, whale movement, liquidation risk, gas threshold, transaction detected
+- 5 alert types: price threshold, balance change, liquidation risk, gas threshold, transaction detected
 - 4 notification channels: webhook, email (SMTP), Telegram, Slack
 - JSON portfolio reports on schedule
 - Safety: read-only hardcoded, 100 alerts/day cap, 15-min dedup
 
 **Stack:** Python, Docker, CoinGecko API, JSON-RPC, The Graph subgraphs
 
-### AI Agent Wallet — $10+
+### AI Agent Wallet — $20
 
 Self-hosted wallet infrastructure for autonomous AI agents.
 
@@ -79,6 +80,19 @@ Self-hosted wallet infrastructure for autonomous AI agents.
 - Multi-chain EVM support
 
 **Stack:** Python, FastAPI, web3.py, SQLite, Docker
+
+### Vincent DeFi Agent — $20
+
+DeFi trading agent with cryptographic guardrails enforced by Lit Protocol's TEE network.
+
+**What it does:**
+- 4 abilities: native send, ERC-20 transfer, Uniswap V3 swap, DCA (all on Base chain)
+- 4 cryptographic policies: rate limiter, spending limit, address whitelist, stop-loss
+- Guardrails run inside TEE hardware — agent physically cannot bypass them
+- CLI agent loop, doctor command, Docker deployment
+- 40 passing tests
+
+**Stack:** TypeScript, Nx/pnpm monorepo, Lit Protocol SDK, ethers.js
 
 ## Common Patterns
 
@@ -121,8 +135,8 @@ git clone https://github.com/intent-solutions-io/ai-agent-wallet.git
 
 | Channel | Status | Products |
 |---------|--------|----------|
-| Gumroad | Live | Crypto Agent, AI Agent Wallet |
-| Whop | Setting up | Crypto Agent, AI Agent Wallet |
+| Gumroad | Live | Crypto Agent, AI Agent Wallet, Vincent DeFi Agent |
+| Whop | Live | Crypto Agent, AI Agent Wallet, Vincent DeFi Agent |
 | Upwork | Live | Crypto Agent |
 
 ## License
