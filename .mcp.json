@@ -6,6 +6,12 @@
       "headers": {
         "Authorization": "Bearer ${WHOP_API_KEY}"
       }
+    },
+    "bags": {
+      "command": "/home/jeremy/.local/bin/mcp-server-bags",
+      "env": {
+        "BAGS_API_KEY": "${BAGS_API_KEY}"
+      }
     }
   }
 }

@@ -1,6 +1,11 @@
 # Sub-project repos (cloned separately)
 crypto-agent/
 ai-agent-wallet/
+vincent-defi-agent/
+derivatives-signal-agent/
+
+# Release artifacts
+releases/
 
 # Environment
 .env
